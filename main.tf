@@ -17,6 +17,11 @@ module "website_s3_bucket" {
   source = "./modules/aws-s3-static-website"
 
   bucket_prefix = "module-object-attributes-"
+  
+  files = {
+    terraform_managed = true
+    www_path = "${path.root}/www"
+  }
 
   tags = {
     terraform     = "true"
